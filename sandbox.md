@@ -30,9 +30,9 @@ You will either be asked to code something from the teacher or make your own gam
   def do_something():
       pass
   scene.set_background_color(0)
-  game.ask(None)
-  game.ask_for_number(None)
-  game.ask_for_string(None)
+  game.ask("Do you want to continue?")
+  game.ask_for_number("How old are you?")
+  game.ask_for_string("Enter your name: ")
   info.set_score(0)
   info.change_score_by(1)
 ```
