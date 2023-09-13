@@ -5,7 +5,7 @@ You will either be asked to code something from the teacher or make your own gam
 
 ```python
   #Code needed for Toolbox
-  adventure.add_to_textlog("")
+  adventure.add_to_textlog("Hello!")
   adventure.add_image_to_text_log(img("""
     . . . . . . . . . . b b b . . .
     . . . . . . . . b e e 3 3 b . .
@@ -26,14 +26,14 @@ You will either be asked to code something from the teacher or make your own gam
 """))
   adventure.clear_text_log()
   adventure.change_log_colors(1, 9)
-  1+1
-  1-1
-  1*1
-  1/1
-  randint(0, 10)
+  x=1+1
+  x=1-1
+  x=1*1
+  x=1/1
+  x=randint(0, 10)
   item = 0
-  True and True
-  True or False
+  x < 3 and x <4
+  x< 3 or x == 1
   if True:
       pass
   if True:
