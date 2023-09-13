@@ -1,6 +1,8 @@
 # Open Template
 
 ## Follow the instructions of the teacher or make your own game with this tutorial
+You will either be asked to code something from the teacher or make your own game.
+
 ```python
   #Code needed for Toolbox
   adventure.add_to_textlog("")
