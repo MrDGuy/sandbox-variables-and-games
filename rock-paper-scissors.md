@@ -112,7 +112,7 @@ Next, using ``||logic:if||``, ``||logic:elif||`` and ``||logic:else||`` display 
 ```
 
 ## Generate the random number for the computer's choice.
-Next, using ``||logic:if||``, ``||logic:elif||`` and ``||logic:else||`` display the different choices based on the player_num.
+Using the ``||math:randint||`` function, create a random number between 1 and 3
 
 ```python
   while player_score < 2 and computer_score < 2:
@@ -126,88 +126,70 @@ Next, using ``||logic:if||``, ``||logic:elif||`` and ``||logic:else||`` display 
     else:
         adventure.add_to_textlog("You Play Scissors!")
         display_scissors()
+    computer_num = randint(1,3)
 ```
 
-## Make a secret number
-Use the ``||math:randint||`` code and change the parameters to 1 and max_num
+## Display the computer's choices.
+Next, using ``||logic:if||``, ``||logic:elif||`` and ``||logic:else||`` display the different choices based on the computer_num.
+
 ```python
-  max_num = 100
-  secret_number = randint(1,max_num)
+  while player_score < 2 and computer_score < 2:
+    player_num = game.ask_for_number("What will you play? 1=Rock, 2=Paper, and 3=Scissors")
+    if player_num == 1:
+        adventure.add_to_textlog("You Play Rock!")
+        display_rock()
+    elif player_num == 2:
+        adventure.add_to_textlog("You Play Paper!")
+        display_paper()
+    else:
+        adventure.add_to_textlog("You Play Scissors!")
+        display_scissors()
+    computer_num = randint(1,3)
+    if computer_num == 1:
+        adventure.add_to_textlog("Computer Plays Rock!")
+        display_rock()
+    elif computer_num == 2:
+        adventure.add_to_textlog("Computer Plays Paper!")
+        display_paper()
+    else:
+        adventure.add_to_textlog("Computer Plays Scissors!")
+        display_scissors()
 ```
 
-## Ask for a guess
-Use the ``||game:ask for string||`` code and write "Enter a number between 1 and " + max_num.
+## Determine a winner
+Using the condition that rock beats scissors, paper beats rock and scissors beat paper, determine the winner.
+
 ```python
-  max_num = 100
-  secret_number = randint(1,max_num)
-  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
+  while player_score < 2 and computer_score < 2:
+    player_num = game.ask_for_number("What will you play? 1=Rock, 2=Paper, and 3=Scissors")
+    if player_num == 1:
+        adventure.add_to_textlog("You Play Rock!")
+        display_rock()
+    elif player_num == 2:
+        adventure.add_to_textlog("You Play Paper!")
+        display_paper()
+    else:
+        adventure.add_to_textlog("You Play Scissors!")
+        display_scissors()
+    computer_num = randint(1,3)
+    if computer_num == 1:
+        adventure.add_to_textlog("Computer Plays Rock!")
+        display_rock()
+    elif computer_num == 2:
+        adventure.add_to_textlog("Computer Plays Paper!")
+        display_paper()
+    else:
+        adventure.add_to_textlog("Computer Plays Scissors!")
+        display_scissors()
+    if (computer_num == 1 and player_num == 2) or (computer_num == 2 and player_num == 3) or (computer_num == 3 and player_num == 1):
+        computer_score +=1
+        adventure.add_to_textlog("Player Wins!")
+    elif (player_num == 1 and computer_num == 2) or (player_num == 2 and computer_num == 3) or (player_num == 3 and computer_num == 1):
+        player_score +=1
+        adventure.add_to_textlog("Computer Wins!")
+    else:
+        adventure.add_to_textlog("Tie!")
 ```
-
-## Make it repeat with a while loop
-Use the ``||loops:while||`` code and change the condition to not guess == secret_number
-```python
-  max_num = 100
-  secret_number = randint(1,max_num)
-  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-  while not guess == secret_number:
-    pass
-```
-
-## Use if statements to determine how they should keep guessing
-Use the ``||logic:if||`` code and change the condition to guess > secret_number and print out "Too high!" using
-the ``||adventure:add text to textlog||``
-```python
-  max_num = 100
-  secret_number = randint(1,max_num)
-  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-  while not guess == secret_number:
-    if guess > secret_number:
-        adventure.add_to_textlog("Too high!")
-```
-
-## Use if statements to determine how they should keep guessing
-Use the ``||logic:if||`` code and change the condition to guess < secret_number and print out "Too low!" using
-the ``||adventure:add text to textlog||``
-```python
-  max_num = 100
-  secret_number = randint(1,max_num)
-  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-  while not guess == secret_number:
-    if guess > secret_number:
-        adventure.add_to_textlog("Too high!")
-    if guess > secret_number:
-        adventure.add_to_textlog("Too low!")
-```
-
-## Use if statements to determine how they should keep guessing
-Use the ``||game:ask for string||`` code and write "Enter a number between 1 and " + max_num. INSIDE THE WHILE LOOP
-```python
-  max_num = 100
-  secret_number = randint(1,max_num)
-  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-  while not guess == secret_number:
-    if guess > secret_number:
-        adventure.add_to_textlog("Too high!")
-    if guess > secret_number:
-        adventure.add_to_textlog("Too low!")
-    guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-```
-
-## After the loop tell the user they guessed it
-Using the ``||adventure:add text to textlog||`` tell the user they guessed it.
-```python
-  max_num = 100
-  secret_number = randint(1,max_num)
-  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-  while not guess == secret_number:
-    if guess > secret_number:
-        adventure.add_to_textlog("Too high!")
-    if guess > secret_number:
-        adventure.add_to_textlog("Too low!")
-    guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
-  adventure.add_to_textlog("You guessed it!")
-```
-
 
 ```assetjson
 {
