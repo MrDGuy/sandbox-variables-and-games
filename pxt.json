@@ -12,7 +12,8 @@
         "README.md",
         "assets.json",
         "main.py",
-        "sandbox.md"
+        "sandbox.md",
+        "mad-lib.md"
     ],
     "testFiles": [
         "test.ts"
