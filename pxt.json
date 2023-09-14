@@ -14,7 +14,8 @@
         "main.py",
         "sandbox.md",
         "mad-lib.md",
-        "number-guess.md"
+        "number-guess.md",
+        "rock-paper-scissors.md"
     ],
     "testFiles": [
         "test.ts"
