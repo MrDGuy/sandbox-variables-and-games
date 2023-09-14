@@ -13,7 +13,8 @@
         "assets.json",
         "main.py",
         "sandbox.md",
-        "mad-lib.md"
+        "mad-lib.md",
+        "number-guess.md"
     ],
     "testFiles": [
         "test.ts"
