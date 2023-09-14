@@ -33,7 +33,8 @@ Use the ``||loops:while||`` code and change the condition to not guess == secret
 ```
 
 ## Use if statements to determine how they should keep guessing
-Use the ``||logic:if||`` code and change the condition to guess < secret_number and guess > secret_number
+Use the ``||logic:if||`` code and change the condition to guess > secret_number and print out "Too high!" using
+the ``||adventure:add text to textlog||``
 ```python
   max_num = 100
   secret_number = randint(1,max_num)
@@ -41,12 +42,24 @@ Use the ``||logic:if||`` code and change the condition to guess < secret_number 
   while not guess == secret_number:
     if guess > secret_number:
         adventure.add_to_textlog("Too high!")
-    if guess < secret_number:
+```
+
+## Use if statements to determine how they should keep guessing
+Use the ``||logic:if||`` code and change the condition to guess < secret_number and print out "Too low!" using
+the ``||adventure:add text to textlog||``
+```python
+  max_num = 100
+  secret_number = randint(1,max_num)
+  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
+  while not guess == secret_number:
+    if guess > secret_number:
+        adventure.add_to_textlog("Too high!")
+    if guess > secret_number:
         adventure.add_to_textlog("Too low!")
 ```
 
 ## Use if statements to determine how they should keep guessing
-Use the ``||logic:if||`` code and change the condition to guess < secret_number and guess > secret_number
+Use the ``||game:ask for string||`` code and write "Enter a number between 1 and " + max_num. INSIDE THE WHILE LOOP
 ```python
   max_num = 100
   secret_number = randint(1,max_num)
@@ -54,56 +67,24 @@ Use the ``||logic:if||`` code and change the condition to guess < secret_number 
   while not guess == secret_number:
     if guess > secret_number:
         adventure.add_to_textlog("Too high!")
-    if guess < secret_number:
+    if guess > secret_number:
         adventure.add_to_textlog("Too low!")
-```
-## Make these inputs variables
-Set each ``||game:ask for string||`` code equal to a variable
-
-```python
-  place = game.ask_for_string("Enter a place: ")
-  verb_1 = game.ask_for_string("Enter a place: ")
-  feeling = game.ask_for_string("Enter a place: ")
-  verb_2 = game.ask_for_string("Enter a place: ")
+    guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
 ```
 
-## Next create the mad lib using the text log.
-Drag in the ``||adventure: add text to textlog||`` and write the first line in the mad lib
-
+## After the loop tell the user they guessed it
+Using the ``||adventure:add text to textlog||`` tell the user they guessed it.
 ```python
-  place = game.ask_for_string("Enter a place: ")
-  verb_1 = game.ask_for_string("Enter a place: ")
-  feeling = game.ask_for_string("Enter a place: ")
-  verb_2 = game.ask_for_string("Enter a place: ")
-
-  adventure.add_to_textlog("At " + place + " in the sun.")
-```
-
-## Next create the mad lib using the text log.
-Drag in another ``||adventure: add text to textlog||`` and write the 2nd line in the mad lib
-
-```python
-  place = game.ask_for_string("Enter a place: ")
-  verb_1 = game.ask_for_string("Enter a place: ")
-  feeling = game.ask_for_string("Enter a place: ")
-  verb_2 = game.ask_for_string("Enter a place: ")
-
-  adventure.add_to_textlog("At " + place + " in the sun.")
-  adventure.add_to_textlog("We'll be " + verb_1 + " and having fun.")
-```
-
-## Next finish the mad lib using the text log.
-Drag in another ``||adventure: add text to textlog||`` and write the 3rd line in the mad lib
-
-```python
-  place = game.ask_for_string("Enter a place: ")
-  verb_1 = game.ask_for_string("Enter a place: ")
-  feeling = game.ask_for_string("Enter a place: ")
-  verb_2 = game.ask_for_string("Enter a place: ")
-
-  adventure.add_to_textlog("At " + place + " in the sun.")
-  adventure.add_to_textlog("We'll be " + verb_1 + " and having fun.")
-  adventure.add_to_textlog("It make me feel so " + feeling + " I " + verb_2_)
+  max_num = 100
+  secret_number = randint(1,max_num)
+  guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
+  while not guess == secret_number:
+    if guess > secret_number:
+        adventure.add_to_textlog("Too high!")
+    if guess > secret_number:
+        adventure.add_to_textlog("Too low!")
+    guess = game.ask_for_number("Enter a number between 1 and " + str(max_num)
+  adventure.add_to_textlog("You guessed it!")
 ```
 
 
