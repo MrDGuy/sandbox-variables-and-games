@@ -191,7 +191,7 @@ Using the condition that rock beats scissors, paper beats rock and scissors beat
         adventure.add_to_textlog("Tie!")
 ```
 
-# Reference
+## Reference
 ```python
   game.ask_for_number(None)
   randint(0, 10)
